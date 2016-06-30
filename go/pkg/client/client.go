@@ -132,7 +132,7 @@ func newMultipartBody(in namedReader) (string, io.ReadCloser) {
 
 	go func() {
 		var err error
-		defer pw.CloseWithError(err)
+		defer func() { pw.CloseWithError(err) }()
 
 		defer mpw.Close()
 
