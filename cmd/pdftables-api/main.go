@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/pdftables/go-pdftables-api/go/pkg/client"
+	"github.com/pdftables/go-pdftables-api/pkg/client"
 )
 
 func usage() {
