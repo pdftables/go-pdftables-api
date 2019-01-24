@@ -13,6 +13,8 @@ import (
 const (
 	// FormatCSV returns the document in Comma Separated Values format
 	FormatCSV = "csv"
+	// FormatHTML returns the document in HTML format
+	FormatHTML = "html"
 	// FormatXML returns the document in an XML format using HTML tables.
 	FormatXML = "xml"
 	// FormatXLSX is an alias for FormatXLSXSinglePage
