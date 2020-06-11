@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '~1.14.4'
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Build code
+        run: |
+          go build ./cmd/...
+
+      - name: Check API with invalid API key (and invalid PDF)
+        env:
+          PDFTABLES_API_KEY: ${{ secrets.PDFTABLES_API_KEY }}
+        run: |
+          ./pdftables-api 2>&1 README.md | grep "Unauthorized"
