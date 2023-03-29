@@ -29,4 +29,4 @@ jobs:
         env:
           PDFTABLES_API_KEY: ${{ secrets.PDFTABLES_API_KEY }}
         run: |
-          ./pdftables-api 2>&1 README.md | grep "Unauthorized"
+          ./pdftables-api 2>&1 README.md | grep "unauthorized"
